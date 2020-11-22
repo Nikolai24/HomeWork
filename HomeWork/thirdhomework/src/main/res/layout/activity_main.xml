@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/navButton1"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tablelayout_1"
+        android:textAllCaps="false"
+        android:onClick="onClick"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton2"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/linearlayout_1"
+        android:textAllCaps="false"
+        android:onClick="onClick2"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton3"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/linearlayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick3"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton4"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/constraintlayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick4"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton5"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relativelayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick5"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton6"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/linearlayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick6"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton7"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/constraintlayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick7"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton8"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relativelayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick8"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton9"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/linearlayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick9"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton10"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/constraintlayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick10"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton11"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relativelayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick11"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/navButton12"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/constraintlayout_5"
+        android:textAllCaps="false"
+        android:onClick="onClick12"
+        android:layout_marginStart="10dp"/>
+
+
+
+</LinearLayout>

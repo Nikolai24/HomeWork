@@ -1,2 +1,8 @@
+<<<<<<< Updated upstream
+=======
+include ':thirdhomework'
+include ':secondhomework'
+include ':kotlin'
+>>>>>>> Stashed changes
 include ':app'
 rootProject.name = "HomeWork"
