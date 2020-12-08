@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="HomeWork.app" target="1.8" />
+      <module name="HomeWork.customview" target="1.8" />
+      <module name="HomeWork.fourthhomework" target="1.8" />
+      <module name="HomeWork.secondhomework" target="1.8" />
+      <module name="HomeWork.thirdhomework" target="1.8" />
+      <module name="kotlin" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
