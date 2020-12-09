@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    style="@style/LayoutStyle1">
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton1"
+        android:text="@string/tablelayout_1"
+        android:textAllCaps="false"
+        android:onClick="onClick"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton2"
+        android:text="@string/linearlayout_1"
+        android:textAllCaps="false"
+        android:onClick="onClick2"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton3"
+        android:text="@string/linearlayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick3"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton4"
+        android:text="@string/constraintlayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick4"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton5"
+        android:text="@string/relativelayout_2"
+        android:textAllCaps="false"
+        android:onClick="onClick5"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton6"
+        android:text="@string/linearlayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick6"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton7"
+        android:text="@string/constraintlayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick7"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton8"
+        android:text="@string/relativelayout_3"
+        android:textAllCaps="false"
+        android:onClick="onClick8"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton9"
+        android:text="@string/linearlayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick9"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton10"
+        android:text="@string/constraintlayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick10"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton11"
+        android:text="@string/relativelayout_4"
+        android:textAllCaps="false"
+        android:onClick="onClick11"/>
+
+    <Button
+        style="@style/ButtonStyle1"
+        android:id="@+id/navButton12"
+        android:text="@string/constraintlayout_5"
+        android:textAllCaps="false"
+        android:onClick="onClick12"/>
+</LinearLayout>

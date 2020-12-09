@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle1">
+
+    <TextView
+        style="@style/TextViewStyle3"
+        android:text="@string/sing"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:hint="@string/email"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:hint="@string/password"/>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle2">
+
+        <CheckBox
+            style="@style/CheckBoxStyle"
+            android:id="@+id/remember"
+            android:checked="true"
+            android:text="@string/remember"/>
+
+        <TextView
+            style="@style/TextViewStyle4"
+            android:text="@string/forgot"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:id="@+id/button"
+        android:text="@string/sign"
+        android:textAllCaps="false"/>
+
+    <TextView
+        style="@style/TextViewStyle5"
+        android:text="@string/just"/>
+</LinearLayout>

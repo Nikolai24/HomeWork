@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle2">
+
+    <TextView
+        style="@style/TextViewStyle3"
+        android:id="@+id/sign"
+        android:text="@string/sing"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:id="@+id/email"
+        android:hint="@string/email"
+        android:layout_below="@id/sign"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:id="@+id/password"
+        android:hint="@string/password"
+        android:layout_below="@id/email"/>
+
+    <CheckBox
+        style="@style/CheckBoxStyle"
+        android:id="@+id/remember"
+        android:checked="true"
+        android:text="@string/remember"
+        android:layout_below="@id/password"/>
+
+    <TextView
+        style="@style/TextViewStyle4"
+        android:text="@string/forgot"
+        android:layout_toEndOf="@id/remember"
+        android:layout_below="@id/password"
+        android:layout_marginTop="31dp"/>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:id="@+id/button"
+        android:text="@string/sign"
+        android:textAllCaps="false"
+        android:layout_below="@id/remember"/>
+
+    <TextView
+        style="@style/TextViewStyle5"
+        android:text="@string/just"
+        android:layout_below="@id/button"/>
+</RelativeLayout>

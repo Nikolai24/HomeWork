@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle1">
+
+    <TextView
+        style="@style/TextViewStyle6"
+        android:text="@string/android"/>
+
+    <LinearLayout
+        style="@style/LayoutStyle3">
+
+        <ImageView
+            style="@style/ImageViewStyle3"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            style="@style/TextViewStyle7"
+            android:text="@string/posts" />
+
+        <TextView
+            style="@style/TextViewStyle7"
+            android:text="@string/followers"/>
+
+        <TextView
+            style="@style/TextViewStyle7"
+            android:text="@string/following"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextViewStyle8"
+        android:text="@string/username"/>
+
+    <TextView
+        style="@style/TextViewStyle9"
+        android:text="@string/address_description"/>
+
+    <LinearLayout
+        style="@style/LayoutStyle3">
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="30dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="12dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="12dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="12dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="12dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle4"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LayoutStyle3">
+
+        <ImageView
+            style="@style/ImageViewStyle5"
+            android:src="@drawable/directions"
+            android:layout_marginStart="60dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle5"
+            android:src="@drawable/call"
+            android:layout_marginStart="45dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle5"
+            android:src="@drawable/save"
+            android:layout_marginStart="20dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle5"
+            android:src="@drawable/website"
+            android:layout_marginStart="32dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LayoutStyle3">
+
+        <TextView
+            style="@style/TextViewStyle10"
+            android:text="@string/directions"
+            android:paddingStart="30dp"/>
+
+        <TextView
+            style="@style/TextViewStyle10"
+            android:text="@string/call"
+            android:paddingStart="14dp"/>
+
+        <TextView
+            style="@style/TextViewStyle10"
+            android:text="@string/save"
+            android:paddingStart="14dp"/>
+
+        <TextView
+            style="@style/TextViewStyle10"
+            android:text="@string/website"
+            android:paddingStart="14dp"/>
+    </LinearLayout>
+
+    <View
+        style="@style/LineStyle"/>
+
+    <LinearLayout
+        style="@style/LayoutStyle3"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            style="@style/ImageViewStyle3"
+            android:layout_marginStart="30dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle3"
+            android:layout_marginStart="15dp"/>
+
+        <ImageView
+            style="@style/ImageViewStyle3"
+            android:layout_marginStart="15dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle2">
+
+    <TextView
+        android:id="@+id/photo"
+        style="@style/PHOTO_Style"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        style="@style/ImagePhotoStyle"
+        android:src="@drawable/photo"
+        android:layout_alignRight="@id/photo"
+        android:layout_alignBottom="@id/photo"/>
+
+    <EditText
+        style="@style/EditTextStyle1"
+        android:id="@+id/title"
+        android:hint="@string/title"
+        android:layout_below="@id/photo"/>
+
+    <EditText
+        style="@style/EditTextStyle2"
+        android:id="@+id/price"
+        android:hint="@string/price"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/title"/>
+
+    <EditText
+        style="@style/EditTextStyle3"
+        android:id="@+id/location"
+        android:hint="@string/location"
+        android:textSize="20sp"
+        android:drawableEnd="@drawable/location"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/price"
+        android:layout_below="@id/title"/>
+
+    <EditText
+        style="@style/EditTextStyle4"
+        android:id="@+id/description"
+        android:hint="@string/description"
+        android:layout_below="@id/price"/>
+
+    <EditText
+        style="@style/EditTextStyle5"
+        android:id="@+id/inventory"
+        android:hint="@string/inventory"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/description"/>
+
+    <EditText
+        style="@style/EditTextStyle6"
+        android:id="@+id/weight"
+        android:hint="@string/weight"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/inventory"
+        android:layout_below="@id/description"/>
+
+</RelativeLayout>

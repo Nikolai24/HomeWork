@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LayoutStyle1">
+
+    <TextView
+        style="@style/POI_Style"/>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/attractions" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/attractions"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/dining" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/dining"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/education" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/education"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/family" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/family"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/health" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/health"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/office" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/office"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/promotions" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/promotions"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/radio" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/radio"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/recipes" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/recipes"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle1">
+        <ImageView
+            style="@style/ImageViewStyle2"
+            android:src="@drawable/sports" />
+        <TextView
+            style="@style/TextViewStyle2"
+            android:text="@string/sports"/>
+    </LinearLayout>
+
+</LinearLayout>
