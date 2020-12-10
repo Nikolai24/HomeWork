@@ -23,8 +23,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     Context mContext;
 
     public DataAdapter (Context context, List<Item> items) {
-        this.items = items;
-        this.itemsAll = items;
+        this.items = new ArrayList<>(items);
+        this.itemsAll = new ArrayList<>(items);
         mContext = context;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
