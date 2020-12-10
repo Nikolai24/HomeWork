@@ -19,13 +19,14 @@ public class MainActivity extends AppCompatActivity {
     static final String ACCESS_MESSAGE="ACCESS_MESSAGE";
     private static  final int REQUEST_ACCESS_TYPE=1;
     private final List<Item> items = new ArrayList<>();
-    private final DataAdapter adapter = new DataAdapter(this, this.items);
+    private DataAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setInitialData();
+        adapter = new DataAdapter(this, this.items);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
