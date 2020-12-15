@@ -1,9 +1,5 @@
 package com.example.fourthhomework;
 
-import android.content.Context;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -21,13 +16,30 @@ import android.widget.Filterable;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> implements Filterable {
     private final List<Item> items;
     private final List<Item> itemsAll;
-    Context mContext;
+    private MainActivity.OnItemClickListener listener;
 
-    public DataAdapter (Context context, List<Item> items) {
+    public DataAdapter (List<Item> items, MainActivity.OnItemClickListener listener) {
         this.items = new ArrayList<>(items);
         this.itemsAll = new ArrayList<>(items);
-        mContext = context;
+        this.listener = listener;
     }
+
+    public void setItems(List<Item> itemsNew) {
+        items.clear();
+        itemsAll.clear();
+        items.addAll(itemsNew);
+        itemsAll.addAll(itemsNew);
+        notifyDataSetChanged();
+    }
+
+    public void editItem(String name, String contact, int position) {
+        items.get(position).setName(name);
+        items.get(position).setContact(contact);
+        itemsAll.get(position).setName(name);
+        itemsAll.get(position).setContact(contact);
+        notifyItemChanged(position);
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameView, contactView;
         private ImageView imageView;
@@ -53,14 +65,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         holder.contactView.setText(item.getContact());
         holder.imageView.setImageResource(item.getImage());
 
-        holder.itemView.setOnClickListener(
-                view -> {
-                    Intent intent = new Intent(mContext, EditContactActivity.class);
-                    intent.putExtra("name", item.getName());
-                    intent.putExtra("contact", item.getContact());
-                    intent.putExtra("position", position);
-                    mContext.startActivity(intent);
-                });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(item, position);
+            }
+        });
     }
 
     @Override
@@ -77,14 +86,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             List<Item> filteredList = new ArrayList<>();
-            Log.d("MSG", charSequence.toString());
             if (charSequence == null || charSequence.length() == 0) {
-                Log.d("MSG", "filteredList.addAll(itemsAll);");
                 filteredList.addAll(itemsAll);
             } else {
                 for (Item movie: itemsAll) {
                     if (movie.getName().toLowerCase().contains(charSequence.toString().toLowerCase())) {
-                        Log.d("MSG", "filteredList.add(movie);");
                         filteredList.add(movie);
                     }
                 }
@@ -98,7 +104,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             items.clear();
             items.addAll((Collection<? extends Item>) filterResults.values);
-            Log.d("MSG", "" + items.size());
             notifyDataSetChanged();
         }
     };
