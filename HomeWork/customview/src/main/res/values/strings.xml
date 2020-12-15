@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomView</string>
+    <string name="click">Координаты клика:</string>
+</resources>
