@@ -1,49 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/LayoutStyle1">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="200dp">
         <TextView
-            style="@style/PHOTO_Style"/>
+            style="@style/PHOTO_Style"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
         <ImageView
             style="@style/ImagePhotoStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/photo"/>
     </FrameLayout>
 
     <EditText
         style="@style/EditTextStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/title"/>
 
     <LinearLayout
-        style="@style/LinearLayoutStyle2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
         android:layout_marginTop="40dp">
 
         <EditText
             style="@style/EditTextStyle2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:hint="@string/price"/>
 
         <EditText
             style="@style/EditTextStyle3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/location"
             android:drawableEnd="@drawable/location"/>
     </LinearLayout>
 
     <EditText
         style="@style/EditTextStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/description"/>
 
     <LinearLayout
-        style="@style/LinearLayoutStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <EditText
             style="@style/EditTextStyle5"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:hint="@string/inventory"/>
 
         <EditText
             style="@style/EditTextStyle6"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:hint="@string/weight"/>
     </LinearLayout>
 </LinearLayout>

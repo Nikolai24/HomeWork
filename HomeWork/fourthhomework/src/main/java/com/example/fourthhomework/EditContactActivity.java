@@ -1,16 +1,16 @@
 package com.example.fourthhomework;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class EditContactActivity extends AppCompatActivity {
-    String name = "Username not set";
-    String contact = "Username not set";
+    String name = "Name not set";
+    String contact = "Contact not set";
     int position = 0;
 
     @Override
@@ -30,26 +30,31 @@ public class EditContactActivity extends AppCompatActivity {
         textView.setText(String.valueOf(position+1));
     }
 
+    String[] array = {"name", "contact", "operation", "position"};
+
     public void onButtonClick(View view) {
         EditText editName = findViewById(R.id.edit_name);
-        name = editName.getText().toString();
+        array[0] = editName.getText().toString();
         EditText editContact = findViewById(R.id.edit_contact);
-        contact = editContact.getText().toString();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("name", name);
-        intent.putExtra("contact", contact);
-        intent.putExtra("position", position);
-        intent.putExtra("operation", "edit");
-        startActivity(intent);
+        array[1] = editContact.getText().toString();
+        array[2] = "edit";
+        array[3] = String.valueOf(position);
+        Intent data = new Intent();
+        data.putExtra(MainActivity.ACCESS_MESSAGE, array);
+        setResult(RESULT_OK, data);
+        finish();
     }
-    public void delete(View v) {
-        name = "delete";
-        contact = "delete";
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("name", name);
-        intent.putExtra("contact", contact);
-        intent.putExtra("position", position);
-        intent.putExtra("operation", "delete");
-        startActivity(intent);
+
+    public void delete(View view) {
+        EditText editName = findViewById(R.id.edit_name);
+        array[0] = editName.getText().toString();
+        EditText editContact = findViewById(R.id.edit_contact);
+        array[1] = editContact.getText().toString();
+        array[2] = "delete";
+        array[3] = String.valueOf(position);
+        Intent data = new Intent();
+        data.putExtra(MainActivity.ACCESS_MESSAGE, array);
+        setResult(RESULT_OK, data);
+        finish();
     }
 }

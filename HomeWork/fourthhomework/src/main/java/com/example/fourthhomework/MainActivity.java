@@ -19,34 +19,35 @@ public class MainActivity extends AppCompatActivity {
     static final String ACCESS_MESSAGE="ACCESS_MESSAGE";
     private static  final int REQUEST_ACCESS_TYPE=1;
     private final List<Item> items = new ArrayList<>();
-
     private DataAdapter adapter;
+    private OnItemClickListener listener = new OnItemClickListener() {
+        @Override
+        public void onItemClick(Item item, int position) {
+            startEditActivity(item, position);
+        }
+    };
+
+    interface OnItemClickListener {
+        void onItemClick(Item item, int position);
+    }
+
+    private void startEditActivity(Item item, int position) {
+        Intent intent = new Intent(MainActivity.this, EditContactActivity.class);
+        intent.putExtra("name", item.getName());
+        intent.putExtra("contact", item.getContact());
+        intent.putExtra("position", position);
+        startActivityForResult(intent, REQUEST_ACCESS_TYPE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setInitialData();
-        adapter = new DataAdapter(this, this.items);
+        adapter = new DataAdapter(this.items, listener);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        Bundle arguments = getIntent().getExtras();
-        if(arguments!=null){
-            String name = arguments.getString("name");
-            String contact = arguments.getString("contact");
-            int position = arguments.getInt("position");
-            String operation = arguments.getString("operation");
-            if (operation.length() == 4) {
-                items.get(position).setName(name);
-                items.get(position).setContact(contact);
-                adapter.notifyItemChanged(position);
-            }
-            else{
-                items.remove(position);
-                adapter.notifyItemRemoved(position);
-            }
-        }
     }
 
     @Override
@@ -91,18 +92,28 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==REQUEST_ACCESS_TYPE){
             if(resultCode==RESULT_OK){
                 String[] array = data.getStringArrayExtra(ACCESS_MESSAGE);
-                String s = array[2];
-                if (s.length() == 12) {
-                    this.items.add(new Item(array[0], array[1], R.drawable.phone));
-                    adapter.notifyItemInserted(this.items.size() - 1);
+                String name = array[0];
+                String contact = array[1];
+                String action = array[2];
+                if (action.length() == 12) {
+                    items.add(new Item(name, contact, R.drawable.phone));
+                }
+                else if (action.length() == 5) {
+                    items.add(new Item(name, contact, R.drawable.email));
+                }
+                else if (action.length() == 4) {
+                    int position = Integer.parseInt(array[3]);
+                    items.get(position).setName(name);
+                    items.get(position).setContact(contact);
                 }
                 else{
-                    this.items.add(new Item(array[0], array[1], R.drawable.email));
-                    adapter.notifyItemInserted(this.items.size() - 1);
+                    int position = Integer.parseInt(array[3]);
+                    items.remove(position);
                 }
+                adapter.setItems(items);
             }
             else{
-                Toast toast = Toast.makeText(this, "Контакт не добавлен",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Список контактов не изменился",Toast.LENGTH_LONG);
                 toast.show();
             }
         }
