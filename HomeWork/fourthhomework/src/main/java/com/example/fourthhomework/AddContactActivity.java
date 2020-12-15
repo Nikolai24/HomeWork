@@ -44,7 +44,6 @@ public class AddContactActivity extends AppCompatActivity {
         EditText editName = findViewById(R.id.edit_name);
         array[0] = editName.getText().toString();
         EditText editContact = findViewById(R.id.edit_contact);
-        // Получаем текст данного текстового поля
         array[1] = editContact.getText().toString();
         Intent data = new Intent();
         data.putExtra(MainActivity.ACCESS_MESSAGE, array);
