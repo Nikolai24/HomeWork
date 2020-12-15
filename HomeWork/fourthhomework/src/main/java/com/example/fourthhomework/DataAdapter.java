@@ -32,14 +32,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         notifyDataSetChanged();
     }
 
-    public void editItem(String name, String contact, int position) {
-        items.get(position).setName(name);
-        items.get(position).setContact(contact);
-        itemsAll.get(position).setName(name);
-        itemsAll.get(position).setContact(contact);
-        notifyItemChanged(position);
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameView, contactView;
         private ImageView imageView;
