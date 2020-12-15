@@ -21,9 +21,19 @@ public class CustomView extends View {
     private Paint paint4 = new Paint();
     private int centerX;
     private int centerY;
-    private int radius;
-    private int center_radius;
-    RectF rectf;
+    public static final int radius = 350;
+    public static final int center_radius = 120;
+    private RectF rectf;
+
+    interface Listener{
+        void onClick(int x, int y);
+    }
+
+    private Listener listener;
+
+    public void setListener(Listener listener){
+        this.listener = listener;
+    }
 
     public CustomView(Context context) {
         super(context);
@@ -61,8 +71,6 @@ public class CustomView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         centerX = MeasureSpec.getSize(widthMeasureSpec) / 2;
         centerY = MeasureSpec.getSize(heightMeasureSpec) / 2;
-        radius = 350;
-        center_radius = 120;
     }
 
     @Override
@@ -84,6 +92,7 @@ public class CustomView extends View {
             int x2 = centerX - x;
             int y2 = centerY - y;
             if ((abs(x2) <= 120 ) && (abs(y2) <= 120) ) {
+                listener.onClick(x, y);
                 paint1.setColor(randomColor());
                 paint2.setColor(randomColor());
                 paint3.setColor(randomColor());
@@ -91,18 +100,22 @@ public class CustomView extends View {
                 invalidate();
             }
             else if ((abs(x2) <= 350 ) && (abs(y2) <= 350) && (x < centerX) && (y < centerY) ) {
+                listener.onClick(x, y);
                 paint2.setColor(randomColor());
                 invalidate();
             }
             else if ((abs(x2) <= 350 ) && (abs(y2) <= 350) && (x < centerX) && (y > centerY) ) {
+                listener.onClick(x, y);
                 paint1.setColor(randomColor());
                 invalidate();
             }
             else if ((abs(x2) <= 350 ) && (abs(y2) <= 350) && (x > centerX) && (y < centerY) ) {
+                listener.onClick(x, y);
                 paint3.setColor(randomColor());
                 invalidate();
             }
             else if ((abs(x2) <= 350 ) && (abs(y2) <= 350) && (x > centerX) && (y > centerY) ) {
+                listener.onClick(x, y);
                 paint4.setColor(randomColor());
                 invalidate();
             }
