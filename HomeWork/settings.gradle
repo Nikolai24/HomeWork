@@ -1,2 +1,10 @@
+include ':homework6'
+include ':homework5_2'
+include ':homework5_1'
+include ':customview'
+include ':fourthhomework'
+include ':thirdhomework'
+include ':secondhomework'
+include ':kotlin'
 include ':app'
 rootProject.name = "HomeWork"
