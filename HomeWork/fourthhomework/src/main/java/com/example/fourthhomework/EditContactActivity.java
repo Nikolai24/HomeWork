@@ -7,53 +7,43 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 public class EditContactActivity extends AppCompatActivity {
-    String name = "Name not set";
-    String contact = "Contact not set";
-    int position = 0;
+    private int position;
+    private EditText editName;
+    private EditText editContact;
+    private Item item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
-        EditText nameView = findViewById(R.id.edit_name);
-        EditText contactView = findViewById(R.id.edit_contact);
+        editName = findViewById(R.id.edit_name);
+        editContact = findViewById(R.id.edit_contact);
         TextView textView = findViewById(R.id.text);
-        if(getIntent().hasExtra("name") && getIntent().hasExtra("contact") && getIntent().hasExtra("position")){
-            name = getIntent().getStringExtra("name");
-            contact = getIntent().getStringExtra("contact");
+        if(getIntent().hasExtra("Item") && getIntent().hasExtra("position")){
+            item = getIntent().getParcelableExtra("Item");
             position = getIntent().getIntExtra("position", 0);
+            editName.setText(item.getName());
+            editContact.setText(item.getContact());
+            textView.setText(String.valueOf(position+1));
         }
-        nameView.setText(name);
-        contactView.setText(contact);
-        textView.setText(String.valueOf(position+1));
     }
 
-    String[] array = {"name", "contact", "operation", "position"};
-
     public void onButtonClick(View view) {
-        EditText editName = findViewById(R.id.edit_name);
-        array[0] = editName.getText().toString();
-        EditText editContact = findViewById(R.id.edit_contact);
-        array[1] = editContact.getText().toString();
-        array[2] = "edit";
-        array[3] = String.valueOf(position);
-        Intent data = new Intent();
-        data.putExtra(MainActivity.ACCESS_MESSAGE, array);
-        setResult(RESULT_OK, data);
-        finish();
+        item.setName(editName.getText().toString());
+        item.setContact(editContact.getText().toString());
+        sendResult(item, position);
     }
 
     public void delete(View view) {
-        EditText editName = findViewById(R.id.edit_name);
-        array[0] = editName.getText().toString();
-        EditText editContact = findViewById(R.id.edit_contact);
-        array[1] = editContact.getText().toString();
-        array[2] = "delete";
-        array[3] = String.valueOf(position);
+        item.setImage("delete");
+        sendResult(item, position);
+    }
+
+    private void sendResult(Item item, int position){
         Intent data = new Intent();
-        data.putExtra(MainActivity.ACCESS_MESSAGE, array);
+        data.putExtra("Item", item);
+        data.putExtra("position", position);
         setResult(RESULT_OK, data);
         finish();
     }

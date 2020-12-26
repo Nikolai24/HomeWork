@@ -70,5 +70,4 @@
         android:layout_margin="20dp"
         app:layout_constraintStart_toEndOf="@id/text1"
         app:layout_constraintTop_toBottomOf="@id/delete"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

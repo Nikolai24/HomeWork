@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.thirdhomework">
+    package="com.example.homework5_1">
 
     <application
         android:allowBackup="true"
@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThirdHomeWork">
-        <activity android:name=".RelativeLayout4"></activity>
-        <activity android:name=".RelativeLayout3" />
-        <activity android:name=".RelativeLayout2" />
-        <activity android:name=".ConstraintLayout5" />
-        <activity android:name=".ConstraintLayout4" />
-        <activity android:name=".ConstraintLayout3" />
-        <activity android:name=".ConstraintLayout2" />
-        <activity android:name=".LinearLayout4" />
-        <activity android:name=".LinearLayout3" />
-        <activity android:name=".LinearLayout2" />
-        <activity android:name=".LinearLayout1" />
-        <activity android:name=".TableLayout1" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.homework5_1.RelativeLayout4"></activity>
+        <activity android:name="com.example.homework5_1.RelativeLayout3" />
+        <activity android:name="com.example.homework5_1.RelativeLayout2" />
+        <activity android:name="com.example.homework5_1.ConstraintLayout5" />
+        <activity android:name="com.example.homework5_1.ConstraintLayout4" />
+        <activity android:name="com.example.homework5_1.ConstraintLayout3" />
+        <activity android:name="com.example.homework5_1.ConstraintLayout2" />
+        <activity android:name="com.example.homework5_1.LinearLayout4" />
+        <activity android:name="com.example.homework5_1.LinearLayout3" />
+        <activity android:name="com.example.homework5_1.LinearLayout2" />
+        <activity android:name="com.example.homework5_1.LinearLayout1" />
+        <activity android:name="com.example.homework5_1.TableLayout1" />
+        <activity android:name="com.example.homework5_1.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

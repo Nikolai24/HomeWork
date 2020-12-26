@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/android"
         android:layout_width="match_parent"
@@ -72,7 +71,7 @@
         android:paddingTop="15dp"/>
 
     <TextView
-        android:id="@+id/adress"
+        android:id="@+id/address"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/address_description"
@@ -87,7 +86,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@color/grey"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"/>
 
@@ -97,7 +96,7 @@
         android:layout_height="40dp"
         android:background="@color/grey"
         android:layout_toEndOf="@id/image2"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"/>
 
@@ -107,7 +106,7 @@
         android:layout_height="40dp"
         android:background="@color/grey"
         android:layout_toEndOf="@id/image3"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"/>
 
@@ -117,7 +116,7 @@
         android:layout_height="40dp"
         android:background="@color/grey"
         android:layout_toEndOf="@id/image4"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"/>
 
@@ -127,7 +126,7 @@
         android:layout_height="40dp"
         android:background="@color/grey"
         android:layout_toEndOf="@id/image5"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"/>
 
@@ -137,7 +136,7 @@
         android:layout_height="40dp"
         android:background="@color/grey"
         android:layout_toEndOf="@id/image6"
-        android:layout_below="@id/adress"
+        android:layout_below="@id/address"
         android:layout_marginTop="20dp"
         android:layout_marginStart="12dp"/>
 
@@ -267,5 +266,4 @@
         android:layout_below="@id/line"
         android:layout_marginTop="25dp"
         android:layout_marginStart="15dp"/>
-
 </RelativeLayout>
