@@ -16,9 +16,13 @@ import android.widget.Filterable;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> implements Filterable {
     private final List<Item> items;
     private final List<Item> itemsAll;
-    private MainActivity.OnItemClickListener listener;
+    private OnItemClickListener listener;
 
-    public DataAdapter (List<Item> items, MainActivity.OnItemClickListener listener) {
+    interface OnItemClickListener {
+        void onItemClick(Item item, int position);
+    }
+
+    public DataAdapter (List<Item> items, OnItemClickListener listener) {
         this.items = new ArrayList<>(items);
         this.itemsAll = new ArrayList<>(items);
         this.listener = listener;
@@ -31,7 +35,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         itemsAll.addAll(itemsNew);
         notifyDataSetChanged();
     }
-   
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameView, contactView;
         private ImageView imageView;
@@ -55,7 +59,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         Item item = items.get(position);
         holder.nameView.setText(item.getName());
         holder.contactView.setText(item.getContact());
-        holder.imageView.setImageResource(item.getImage());
+        if (item.getImage().equals("email")) {
+            holder.imageView.setImageResource(R.drawable.email);
+        } else {
+            holder.imageView.setImageResource(R.drawable.phone);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -74,16 +82,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         return myFilter;
     }
 
-    Filter myFilter = new Filter() {
+    private Filter myFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             List<Item> filteredList = new ArrayList<>();
             if (charSequence == null || charSequence.length() == 0) {
                 filteredList.addAll(itemsAll);
             } else {
-                for (Item movie: itemsAll) {
-                    if (movie.getName().toLowerCase().contains(charSequence.toString().toLowerCase())) {
-                        filteredList.add(movie);
+                for (Item item: itemsAll) {
+                    if (item.getName().toLowerCase().contains(charSequence.toString().toLowerCase())) {
+                        filteredList.add(item);
                     }
                 }
             }
