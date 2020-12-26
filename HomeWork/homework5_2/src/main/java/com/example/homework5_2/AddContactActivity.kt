@@ -7,25 +7,28 @@ import android.widget.EditText
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 
-
 class AddContactActivity : AppCompatActivity() {
-    var array = arrayOf("", "", "phone_number")
+    private var image = "phone"
+    private lateinit var editName: EditText
+    private lateinit var editContact: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_contact)
+        editName = findViewById(R.id.edit_name)
+        editContact = findViewById(R.id.edit_contact)
     }
 
     fun onRadioButtonClicked(view: View) {
         val checked = (view as RadioButton).isChecked
-        val contact = findViewById<EditText>(R.id.edit_contact)
         when (view.getId()) {
             R.id.phone_number -> if (checked) {
-                contact.hint = "Phone number"
-                array[2] = "phone_number"
+                editContact.hint = "Phone number"
+                image = "phone"
             }
             R.id.email -> if (checked) {
-                contact.hint = "Email"
-                array[2] = "email"
+                editContact.hint = "Email"
+                image = "email"
             }
         }
     }
@@ -36,12 +39,15 @@ class AddContactActivity : AppCompatActivity() {
     }
 
     fun onButtonClick(v: View?) {
-        val editName = findViewById<EditText>(R.id.edit_name)
-        array[0] = editName.text.toString()
-        val editContact = findViewById<EditText>(R.id.edit_contact)
-        array[1] = editContact.text.toString()
+        val name = editName.text.toString()
+        val contact = editContact.text.toString()
+        val item = Item(name, contact, image)
+        sendResult(item)
+    }
+
+    private fun sendResult(item: Item) {
         val data = Intent()
-        data.putExtra(MainActivity.ACCESS_MESSAGE, array)
+        data.putExtra("Item", item)
         setResult(RESULT_OK, data)
         finish()
     }

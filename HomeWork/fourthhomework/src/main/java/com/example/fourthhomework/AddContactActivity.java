@@ -8,28 +8,31 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 public class AddContactActivity extends AppCompatActivity {
-    String[] array = {"", "", "phone_number"};
+    private String image = "phone";
+    private EditText editName;
+    private EditText editContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
+        editName = findViewById(R.id.edit_name);
+        editContact = findViewById(R.id.edit_contact);
     }
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
-        EditText contact = findViewById(R.id.edit_contact);
         switch(view.getId()) {
             case R.id.phone_number:
                 if (checked){
-                    contact.setHint("Phone number");
-                    array[2] = "phone_number";
+                    editContact.setHint("Phone number");
+                    image = "phone";
                 }
                 break;
             case R.id.email:
                 if (checked){
-                    contact.setHint("Email");
-                    array[2] = "email";
+                    editContact.setHint("Email");
+                    image = "email";
                 }
                 break;
         }
@@ -41,12 +44,15 @@ public class AddContactActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
-        EditText editName = findViewById(R.id.edit_name);
-        array[0] = editName.getText().toString();
-        EditText editContact = findViewById(R.id.edit_contact);
-        array[1] = editContact.getText().toString();
+        String name = editName.getText().toString();
+        String contact = editContact.getText().toString();
+        Item item = new Item(name, contact, image);
+        sendResult(item);
+    }
+
+    private void sendResult(Item item){
         Intent data = new Intent();
-        data.putExtra(MainActivity.ACCESS_MESSAGE, array);
+        data.putExtra("Item", item);
         setResult(RESULT_OK, data);
         finish();
     }
