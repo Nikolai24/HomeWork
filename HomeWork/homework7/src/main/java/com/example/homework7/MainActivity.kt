@@ -2,10 +2,7 @@ package com.example.homework7
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.Menu
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private var items: MutableList<Item> = mutableListOf()
     private lateinit var adapter: DataAdapter
     private lateinit var recyclerView: RecyclerView
+    private val operation: DBOperation = DBOperation()
 
     private val listener: DataAdapter.OnItemClickListener = object : DataAdapter.OnItemClickListener {
         override fun onItemClick(item: Item, position: Int) {
@@ -46,27 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        adapter.setItems(getContactsFromBD())
-    }
-
-    private fun getContactsFromBD() : List<Item> {
-        val coursore = (applicationContext as App)
-                .dbHelper
-                .readableDatabase
-                .query("contacts", null, null, null, null, null, null)
-        if(coursore != null) {
-            val idIndex = coursore.getColumnIndex("id")
-            val nameIndex = coursore.getColumnIndex("name")
-            val contactIndex = coursore.getColumnIndex("contact")
-            val imageIndex = coursore.getColumnIndex("image")
-            val list = mutableListOf<Item>()
-            while (coursore.moveToNext()) {
-                list.add(Item(coursore.getInt(idIndex), coursore.getString(nameIndex), coursore.getString(contactIndex), coursore.getString(imageIndex)))
-            }
-            coursore.close()
-            return list
-        }
-        return emptyList()
+        adapter.setItems(operation.getContactsFromBD(applicationContext))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

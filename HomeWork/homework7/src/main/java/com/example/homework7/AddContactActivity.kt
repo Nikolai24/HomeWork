@@ -1,6 +1,5 @@
 package com.example.homework7
 
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +13,7 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var buttonSave: Button
     private lateinit var buttonCancel: Button
     private var image: String = "phone"
+    private val operation: DBOperation = DBOperation()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class AddContactActivity : AppCompatActivity() {
         editContact = findViewById(R.id.edit_contact)
         buttonSave = findViewById(R.id.buttonSave)
         buttonSave.setOnClickListener {
-            saveContact(editName.text.toString(), editContact.text.toString())
+            operation.saveContact(applicationContext, editName.text.toString(), editContact.text.toString(), image)
             finish()
         }
         buttonCancel = findViewById(R.id.buttonCancel)
@@ -48,17 +48,6 @@ class AddContactActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveContact(textName:String, textContact:String){
-        val contentValues = ContentValues().apply {
-            put("name", textName)
-            put("contact", textContact)
-            put("image", image)
-        }
-        (applicationContext as App)
-                .dbHelper
-                .readableDatabase
-                .insert("contacts", null, contentValues)
-    }
     companion object{
         @JvmStatic
         fun newIntent(context: Context) = Intent(context, AddContactActivity::class.java)
