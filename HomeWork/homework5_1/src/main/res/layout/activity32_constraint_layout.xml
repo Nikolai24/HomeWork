@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/TextViewStyle3"
+        android:id="@+id/sign"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/sing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/sign"/>
+
+    <EditText
+        style="@style/EditTextStyle7"
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/password"
+        app:layout_constraintTop_toBottomOf="@id/email"/>
+
+    <CheckBox
+        style="@style/CheckBoxStyle"
+        android:id="@+id/remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/remember"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password"/>
+
+    <TextView
+        style="@style/TextViewStyle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot"
+        app:layout_constraintStart_toEndOf="@id/remember"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        android:layout_marginTop="31dp"/>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/remember"/>
+
+    <TextView
+        style="@style/TextViewStyle5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/just"
+        app:layout_constraintTop_toBottomOf="@id/button"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
