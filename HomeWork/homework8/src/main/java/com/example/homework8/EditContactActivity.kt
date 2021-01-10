@@ -6,18 +6,20 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
+import com.example.homework8.async.DBCompletableFuture
+import com.example.homework8.async.DBHandler
+import com.example.homework8.async.DBInterface
+import com.example.homework8.async.DBRxJava
 
 class EditContactActivity : AppCompatActivity() {
     private lateinit var editName: TextView
     private lateinit var editContact: TextView
     private lateinit var image: String
-    var position = 0
+    private var position = 0
     private lateinit var buttonEdit: Button
     private lateinit var buttonDelete: Button
-    private val operation: DBInterface = DBHandler()
+    private lateinit var operation: DBInterface
+    private val namePreference = "asyncWorkType"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,7 @@ class EditContactActivity : AppCompatActivity() {
         editName = findViewById(R.id.edit_name)
         editContact = findViewById(R.id.edit_contact)
         val textView = findViewById<TextView>(R.id.text)
+        operation = getAsyncWork()
         if (intent.hasExtra("name") && intent.hasExtra("contact") && intent.hasExtra("image") && intent.hasExtra("position")) {
             image = intent.getStringExtra("image").toString()
             position = intent.getIntExtra("position", 0)
@@ -41,6 +44,29 @@ class EditContactActivity : AppCompatActivity() {
         buttonDelete.setOnClickListener {
             operation.deleteContact(applicationContext, position)
             finish()
+        }
+    }
+
+    override fun onDestroy() {
+        operation = getAsyncWork()
+        operation.close(applicationContext)
+        super.onDestroy()
+    }
+
+    private fun loadAsyncWork() : String {
+        val sharedPrefs = getSharedPreferences(namePreference, Context.MODE_PRIVATE)
+        return sharedPrefs.getString("ASYNC_WORK", "handler").toString()
+    }
+
+    private fun getAsyncWork() : DBInterface {
+        return when (loadAsyncWork()) {
+            "handler" -> {
+                DBHandler()
+            }
+            "completable_future" -> {
+                DBCompletableFuture()
+            }
+            else -> DBRxJava()
         }
     }
 

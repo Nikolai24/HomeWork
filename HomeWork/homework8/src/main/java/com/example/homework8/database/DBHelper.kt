@@ -1,9 +1,9 @@
-package com.example.homework8
+package com.example.homework8.database
 
-import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.homework8.Item
 
 
 class DBHelper(context: Context) : SQLiteOpenHelper(context, "contacts", null, 1) {
@@ -12,7 +12,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "contacts", null, 1
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

@@ -1,7 +1,8 @@
-package com.example.homework8
+package com.example.homework8.database
 
 import android.content.ContentValues
 import android.content.Context
+import com.example.homework8.Item
 
 class DBOperation {
     fun getContactsFromBD(applicationContext: Context) : List<Item> {
@@ -25,7 +26,6 @@ class DBOperation {
     }
 
     fun  saveContact(applicationContext: Context, name:String, contact:String, image:String){
-        Thread(Runnable {
             val contentValues = ContentValues().apply {
                 put("name", name)
                 put("contact", contact)
@@ -35,11 +35,9 @@ class DBOperation {
                     .dbHelper
                     .readableDatabase
                     .insert("contacts", null, contentValues)
-        }).start()
     }
 
     fun updateContact(applicationContext: Context, name:String, contact:String, image:String, position:Int){
-        Thread(Runnable {
             val contentValues = ContentValues().apply {
                 put("name", name)
                 put("contact", contact)
@@ -49,15 +47,12 @@ class DBOperation {
                     .dbHelper
                     .readableDatabase
                     .update("contacts", contentValues, "" + getContactsFromBD(applicationContext)[position].id + " =id", null)
-        }).start()
     }
 
     fun deleteContact(applicationContext: Context, position:Int){
-        Thread(Runnable {
             (applicationContext as App)
                     .dbHelper
                     .readableDatabase
                     .delete("contacts", "" + getContactsFromBD(applicationContext)[position].id + " =id", null)
-        }).start()
     }
 }

@@ -3,10 +3,17 @@ package com.example.homework8
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.TextView
+import android.widget.Toast
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.homework8.async.DBCompletableFuture
+import com.example.homework8.async.DBHandler
+import com.example.homework8.async.DBInterface
+import com.example.homework8.async.DBRxJava
 
 class AddContactActivity : AppCompatActivity() {
     private lateinit var editName: TextView
@@ -14,7 +21,8 @@ class AddContactActivity : AppCompatActivity() {
     private lateinit var buttonSave: Button
     private lateinit var buttonCancel: Button
     private var image: String = "phone"
-    private val operation: DBInterface = DBHandler()
+    private lateinit var operation: DBInterface
+    private val namePreference = "asyncWorkType"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +30,7 @@ class AddContactActivity : AppCompatActivity() {
         editName = findViewById(R.id.edit_name)
         editContact = findViewById(R.id.edit_contact)
         buttonSave = findViewById(R.id.buttonSave)
+        operation = getAsyncWork()
         buttonSave.setOnClickListener {
             operation.saveContact(applicationContext, editName.text.toString(), editContact.text.toString(), image)
             finish()
@@ -32,6 +41,12 @@ class AddContactActivity : AppCompatActivity() {
             toast.show()
             finish()
         }
+    }
+
+    override fun onDestroy() {
+        operation = getAsyncWork()
+        operation.close(applicationContext)
+        super.onDestroy()
     }
 
     fun onRadioButtonClicked(view: View) {
@@ -46,6 +61,23 @@ class AddContactActivity : AppCompatActivity() {
                 contact.hint = "Email"
                 image = "email"
             }
+        }
+    }
+
+    private fun loadAsyncWork() : String {
+        val sharedPrefs = getSharedPreferences(namePreference, Context.MODE_PRIVATE)
+        return sharedPrefs.getString("ASYNC_WORK", "handler").toString()
+    }
+
+    private fun getAsyncWork() : DBInterface {
+        return when (loadAsyncWork()) {
+            "handler" -> {
+                DBHandler()
+            }
+            "completable_future" -> {
+                DBCompletableFuture()
+            }
+            else -> DBRxJava()
         }
     }
 

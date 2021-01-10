@@ -1,5 +1,6 @@
 package com.example.homework8
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -7,13 +8,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework8.async.DBCompletableFuture
+import com.example.homework8.async.DBHandler
+import com.example.homework8.async.DBInterface
+import com.example.homework8.async.DBRxJava
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private var items: MutableList<Item> = mutableListOf()
     private lateinit var adapter: DataAdapter
     private lateinit var recyclerView: RecyclerView
-    private val operation: DBInterface = DBHandler()
+    private lateinit var operation: DBInterface
+    private val namePreference = "asyncWorkType"
 
     private val listener: DataAdapter.OnItemClickListener = object : DataAdapter.OnItemClickListener {
         override fun onItemClick(item: Item, position: Int) {
@@ -37,14 +43,41 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+        findViewById<FloatingActionButton>(R.id.async).setOnClickListener{
+            startActivity(AsyncWorkActivity.newIntent(this))
+        }
         findViewById<FloatingActionButton>(R.id.add).setOnClickListener{
             startActivity(AddContactActivity.newIntent(this))
         }
     }
 
+    private val newListener: Listener = object : Listener {
+        override fun onDataReceived(list: List<Item>) {
+            adapter.setItems(list)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        adapter.setItems(operation.getContactsFromBD(applicationContext))
+        operation = getAsyncWork()
+        operation.getContactsFromBD(applicationContext, newListener)
+    }
+
+    private fun loadAsyncWork() : String {
+        val sharedPrefs = getSharedPreferences(namePreference, Context.MODE_PRIVATE)
+        return sharedPrefs.getString("ASYNC_WORK", "handler").toString()
+    }
+
+    private fun getAsyncWork() : DBInterface {
+        return when (loadAsyncWork()) {
+            "handler" -> {
+                DBHandler()
+            }
+            "completable_future" -> {
+                DBCompletableFuture()
+            }
+            else -> DBRxJava()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
