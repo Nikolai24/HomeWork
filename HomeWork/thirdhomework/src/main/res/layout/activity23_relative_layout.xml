@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/grey"
+        android:text="@string/photo"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/photo"
+        android:layout_alignRight="@id/photo"
+        android:layout_marginEnd="15dp"
+        android:layout_alignBottom="@id/photo"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/photo"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/location"
+        android:textSize="20sp"
+        android:drawableEnd="@drawable/location"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@id/price"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:textSize="20sp"
+        android:layout_below="@id/price"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <EditText
+        android:id="@+id/inventory"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/inventory"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/description"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/weight"
+        android:textSize="20sp"
+        android:layout_toEndOf="@id/inventory"
+        android:layout_marginStart="100dp"
+        android:layout_below="@id/description"
+        android:layout_marginTop="40dp"/>
+
+</RelativeLayout>
