@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/grey"
+        android:text="@string/photo"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/photo"
+        app:layout_constraintRight_toRightOf="@id/photo"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/photo"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/photo"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/location"
+        android:textSize="20sp"
+        android:drawableEnd="@drawable/location"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintStart_toEndOf="@id/price"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/price"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <EditText
+        android:id="@+id/inventory"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/inventory"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/weight"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/inventory"
+        android:layout_marginStart="100dp"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        android:layout_marginTop="40dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
