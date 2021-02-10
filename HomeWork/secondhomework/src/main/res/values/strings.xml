@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SecondHomeWork</string>
+    <string name="button">Сгенерировать набор случайных чисел</string>
+    <string name="button1">Среднее арифметическое</string>
+    <string name="button2">Сумма всех чисел</string>
+    <string name="button3">Поделить пополам, и разделить сумму первой половины на разность второй</string>
+    <string name="cancel">Отмена</string>
+</resources>
